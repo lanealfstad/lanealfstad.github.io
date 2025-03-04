@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Trail Visualization - Lane Alfstad's Portfolio</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">Lane Alfstad</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#skills">Skills</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1>Interactive Trail Visualization</h1>
+            <div class="project-meta">
+                <span><i class="fas fa-calendar"></i> 2023</span>
+                <span><i class="fas fa-tag"></i> Visualization, JavaScript</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="project-overview">
+                <h2>Project Overview</h2>
+                <p>This project focused on creating an interactive visualization of trail data, allowing users to explore and analyze various aspects of trail systems. The visualization provides insights into trail difficulty, elevation profiles, popular routes, and seasonal usage patterns.</p>
+            </div>
+
+            <div class="project-details">
+                <div class="detail-section">
+                    <h3>Objectives</h3>
+                    <ul>
+                        <li>Create an intuitive and engaging visual representation of trail data</li>
+                        <li>Enable users to interactively explore trail characteristics</li>
+                        <li>Visualize elevation profiles and difficulty metrics</li>
+                        <li>Analyze seasonal usage patterns and popular trail segments</li>
+                    </ul>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Methodology</h3>
+                    <p>The visualization was developed using the following approach:</p>
+                    <ul>
+                        <li>Data collection from trail GPS coordinates and user activity</li>
+                        <li>Data processing to normalize and structure information</li>
+                        <li>Development of interactive visualization components</li>
+                        <li>Implementation of user interface elements for exploration</li>
+                    </ul>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Interactive Features</h3>
+                    <div class="visualization-gallery">
+                        <div class="viz-item">
+                            <img src="../images/projects/trail-viz1.jpg" alt="Elevation Profile Visualization">
+                            <p>Interactive elevation profile with difficulty indicators</p>
+                        </div>
+                        <div class="viz-item">
+                            <img src="../images/projects/trail-viz2.jpg" alt="Heatmap Visualization">
+                            <p>Usage heatmap showing popular trail segments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Key Insights</h3>
+                    <ul>
+                        <li>Trail usage patterns correlate with seasonal weather changes</li>
+                        <li>Most popular segments tend to be moderate in difficulty</li>
+                        <li>Specific viewpoints and features drive increased traffic to certain segments</li>
+                        <li>User demographics influence trail selection and completion rates</li>
+                    </ul>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Technologies Used</h3>
+                    <div class="tech-stack">
+                        <span>JavaScript</span>
+                        <span>D3.js</span>
+                        <span>HTML/CSS</span>
+                        <span>GeoJSON</span>
+                        <span>TopoJSON</span>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Code Sample</h3>
+                    <pre><code>
+// Example D3.js code for elevation profile visualization
+const margin = {top: 20, right: 30, bottom: 30, left: 40};
+const width = 960 - margin.left - margin.right;
+const height = 500 - margin.top - margin.bottom;
+
+// Set up SVG container
+const svg = d3.select("#elevation-profile")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+// Set up scales
+const x = d3.scaleLinear()
+    .domain([0, d3.max(trailData, d => d.distance)])
+    .range([0, width]);
+
+const y = d3.scaleLinear()
+    .domain([0, d3.max(trailData, d => d.elevation)])
+    .range([height, 0]);
+
+// Create area for elevation profile
+const area = d3.area()
+    .x(d => x(d.distance))
+    .y0(height)
+    .y1(d => y(d.elevation));
+
+// Add the area path
+svg.append("path")
+    .datum(trailData)
+    .attr("class", "elevation-area")
+    .attr("d", area)
+    .attr("fill", "steelblue")
+    .attr("opacity", 0.7);
+
+// Add axes
+svg.append("g")
+    .attr("transform", `translate(0,${height})`)
+    .call(d3.axisBottom(x).ticks(width / 80).tickFormat(d => `${d}mi`));
+
+svg.append("g")
+    .call(d3.axisLeft(y).ticks(height / 40).tickFormat(d => `${d}ft`));
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-conclusion">
+                <h2>Conclusion</h2>
+                <p>This interactive trail visualization provides valuable insights for both trail managers and users. The visualization makes complex trail data accessible and engaging, allowing for better decision-making regarding trail maintenance, development, and usage. The project showcases the power of interactive data visualization in transforming raw data into meaningful insights.</p>
+            </div>
+
+            <div class="project-navigation">
+                <a href="../index.html#projects" class="btn secondary-btn">Back to Projects</a>
+                <a href="https://github.com/yourusername/trail-visualization" class="btn primary-btn" target="_blank">View Code on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Lane Alfstad. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

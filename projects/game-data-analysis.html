@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Data Analysis - Lane Alfstad's Portfolio</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">Lane Alfstad</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#skills">Skills</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1>Game Data Analysis</h1>
+            <div class="project-meta">
+                <span><i class="fas fa-calendar"></i> 2023</span>
+                <span><i class="fas fa-tag"></i> Data Science, R</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="project-overview">
+                <h2>Project Overview</h2>
+                <p>This project involved analyzing game data using R to discover patterns, trends, and insights that could inform game design and player engagement strategies. The analysis focused on player behavior, game mechanics, and performance metrics.</p>
+            </div>
+
+            <div class="project-details">
+                <div class="detail-section">
+                    <h3>Objectives</h3>
+                    <ul>
+                        <li>Identify patterns in player behavior and game usage</li>
+                        <li>Analyze game performance metrics and their correlation with player engagement</li>
+                        <li>Create predictive models for player retention and monetization</li>
+                        <li>Develop visualizations to communicate insights effectively</li>
+                    </ul>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Methodology</h3>
+                    <p>The project utilized a comprehensive approach including:</p>
+                    <ul>
+                        <li>Exploratory data analysis to understand the structure and characteristics of the data</li>
+                        <li>Statistical analysis to identify significant patterns and relationships</li>
+                        <li>Data visualization to represent complex information in an accessible way</li>
+                        <li>Predictive modeling to forecast future trends and behaviors</li>
+                    </ul>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Data Visualization</h3>
+                    <div class="visualization-gallery">
+                        <div class="viz-item">
+                            <img src="../images/projects/game-data-plot1.jpg" alt="Player Engagement Visualization">
+                            <p>Player engagement across different game modes</p>
+                        </div>
+                        <div class="viz-item">
+                            <img src="../images/projects/game-data-plot2.jpg" alt="Retention Analysis">
+                            <p>Player retention analysis over time</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Key Findings</h3>
+                    <ul>
+                        <li>Player engagement peaked during specific in-game events and promotions</li>
+                        <li>Retention rates were strongly correlated with early game progression speed</li>
+                        <li>Monetization was most effective when tied to cosmetic rather than functional benefits</li>
+                        <li>Player social interactions were a leading indicator of long-term retention</li>
+                    </ul>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Technologies Used</h3>
+                    <div class="tech-stack">
+                        <span>R</span>
+                        <span>ggplot2</span>
+                        <span>dplyr</span>
+                        <span>tidyr</span>
+                        <span>Statistical Analysis</span>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Code Sample</h3>
+                    <pre><code>
+# Example R code for data analysis
+library(tidyverse)
+library(ggplot2)
+
+# Load and clean data
+game_data <- read.csv("game_data.txt", header = TRUE)
+game_data <- game_data %>%
+  filter(!is.na(player_id)) %>%
+  mutate(session_date = as.Date(session_date))
+
+# Analyze player engagement
+engagement_by_day <- game_data %>%
+  group_by(session_date) %>%
+  summarize(
+    active_players = n_distinct(player_id),
+    avg_session_time = mean(session_duration, na.rm = TRUE)
+  )
+
+# Visualize engagement trends
+ggplot(engagement_by_day, aes(x = session_date, y = active_players)) +
+  geom_line(color = "#2563eb", size = 1) +
+  geom_smooth(method = "loess", se = FALSE, color = "#1e40af") +
+  labs(
+    title = "Daily Active Players Over Time",
+    x = "Date",
+    y = "Number of Active Players"
+  ) +
+  theme_minimal()
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-conclusion">
+                <h2>Conclusion</h2>
+                <p>This analysis provided valuable insights into player behavior and game performance that can guide future game development and marketing strategies. The project demonstrated the power of data science in understanding complex player interactions and improving game design based on empirical evidence rather than intuition alone.</p>
+            </div>
+
+            <div class="project-navigation">
+                <a href="../index.html#projects" class="btn secondary-btn">Back to Projects</a>
+                <a href="https://github.com/yourusername/game-data-analysis" class="btn primary-btn" target="_blank">View Code on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Lane Alfstad. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

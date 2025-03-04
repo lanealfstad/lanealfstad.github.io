@@ -1,0 +1,169 @@
+/* Project Page Specific Styles */
+.project-hero {
+    padding: 150px 0 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--light-text);
+    text-align: center;
+}
+
+.project-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 1.1rem;
+}
+
+.project-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-content {
+    padding: 80px 0;
+}
+
+.project-overview {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.project-overview p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.project-details {
+    margin-bottom: 60px;
+}
+
+.detail-section {
+    margin-bottom: 40px;
+}
+
+.detail-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.detail-section ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.detail-section li {
+    margin-bottom: 10px;
+}
+
+.visualization-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.viz-item {
+    background-color: var(--light-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.viz-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.viz-item p {
+    padding: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tech-stack span {
+    background-color: var(--light-background);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+pre {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+code {
+    display: block;
+}
+
+.project-conclusion {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.project-conclusion h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.project-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.project-navigation .btn {
+    min-width: 180px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .project-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .project-meta {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .visualization-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .project-navigation .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+} 
