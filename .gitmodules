@@ -4,3 +4,24 @@
 [submodule "IE3013"]
 	path = IE3013
 	url = https://github.com/lanealfstad/IE3013.git
+[submodule "CSCI4131"]
+	path = CSCI4131
+	url = https://github.com/lanealfstad/CSCI4131.git
+[submodule "CSCI5523"]
+	path = CSCI5523
+	url = https://github.com/lanealfstad/CSCI5523.git
+[submodule "CSCI5523_old"]
+	path = CSCI5523_old
+	url = https://github.com/lanealfstad/CSCI5523_old.git
+[submodule "IE5533"]
+	path = IE5533
+	url = https://github.com/lanealfstad/IE5533.git
+[submodule "IE5561"]
+	path = IE5561
+	url = https://github.com/lanealfstad/IE5561.git
+[submodule "STAT3301"]
+	path = STAT3301
+	url = https://github.com/lanealfstad/STAT3301.git
+[submodule "STAT4051"]
+	path = STAT4051
+	url = https://github.com/lanealfstad/STAT4051.git
