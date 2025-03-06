@@ -58,30 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Form submission handling
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            // Simple validation
-            let isValid = true;
-            const formData = new FormData(contactForm);
-            
-            for (const [key, value] of formData.entries()) {
-                if (!value.trim()) {
-                    isValid = false;
-                    break;
-                }
-            }
-            
-            if (!isValid) {
-                e.preventDefault();
-                alert('Please fill in all fields.');
-            }
-            // If valid, let the form submit naturally to Formspree
-        });
-    }
-    
     // Scroll animations
     window.addEventListener('scroll', function() {
         // Add a background to header on scroll
