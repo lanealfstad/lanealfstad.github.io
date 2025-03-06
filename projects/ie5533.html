@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Analytics - Lane Alfstad</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">Lane Alfstad</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#skills">Skills</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1>Basketball Analytics</h1>
+            <div class="project-meta">
+                <span><i class="fas fa-code"></i> R</span>
+                <span><i class="fas fa-chart-line"></i> Statistical Analysis</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="project-section">
+                <h2>Project Overview</h2>
+                <p>Advanced statistical analysis of basketball data to identify performance patterns and predict game outcomes. This project combines statistical modeling with sports analytics to derive actionable insights.</p>
+            </div>
+
+            <div class="project-section">
+                <h3>Data Analysis</h3>
+                <div class="tech-stack">
+                    <span>R</span>
+                    <span>tidyverse</span>
+                    <span>ggplot2</span>
+                </div>
+                <p>Comprehensive analysis of basketball statistics including:</p>
+                <ul>
+                    <li>Player performance metrics</li>
+                    <li>Team statistics and trends</li>
+                    <li>Game outcome predictions</li>
+                    <li>Shot selection analysis</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>
+# Example R code for basketball analysis
+library(tidyverse)
+library(ggplot2)
+
+# Analyze player performance
+player_stats <- basketball_data %>%
+  group_by(player_id) %>%
+  summarize(
+    avg_points = mean(points),
+    avg_rebounds = mean(rebounds),
+    avg_assists = mean(assists),
+    games_played = n()
+  ) %>%
+  arrange(desc(avg_points))
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Statistical Modeling</h3>
+                <div class="tech-stack">
+                    <span>R</span>
+                    <span>caret</span>
+                    <span>stats</span>
+                </div>
+                <p>Development of statistical models for:</p>
+                <ul>
+                    <li>Game outcome prediction</li>
+                    <li>Player performance forecasting</li>
+                    <li>Team strategy optimization</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>
+# Logistic regression for game outcome prediction
+game_model <- glm(
+  win ~ points + rebounds + assists + turnovers,
+  data = game_data,
+  family = binomial
+)
+
+# Model summary and predictions
+summary(game_model)
+predictions <- predict(game_model, newdata = test_data, type = "response")
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Visualization</h3>
+                <div class="tech-stack">
+                    <span>ggplot2</span>
+                    <span>plotly</span>
+                    <span>gganimate</span>
+                </div>
+                <p>Creation of interactive visualizations to display:</p>
+                <ul>
+                    <li>Shot charts and heat maps</li>
+                    <li>Performance trends over time</li>
+                    <li>Player comparison dashboards</li>
+                    <li>Team statistics visualizations</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>
+# Create shot chart visualization
+ggplot(shot_data, aes(x = court_x, y = court_y)) +
+  geom_point(aes(color = made_shot)) +
+  court_theme() +
+  scale_color_manual(values = c("red", "green")) +
+  labs(title = "Shot Distribution",
+       subtitle = "Made vs Missed Shots")
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Key Findings</h3>
+                <ul>
+                    <li>Identified key performance indicators that most strongly correlate with winning</li>
+                    <li>Developed predictive models with over 70% accuracy for game outcomes</li>
+                    <li>Created optimized lineup recommendations based on statistical analysis</li>
+                    <li>Generated insights for improving team strategy and player development</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3>Technologies Used</h3>
+                <div class="tech-stack">
+                    <span>R</span>
+                    <span>tidyverse</span>
+                    <span>ggplot2</span>
+                    <span>plotly</span>
+                    <span>caret</span>
+                    <span>dplyr</span>
+                    <span>tidyr</span>
+                    <span>gganimate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="project-navigation">
+        <div class="container">
+            <a href="../index.html#projects" class="btn secondary-btn">Back to Projects</a>
+            <a href="https://github.com/lanealfstad/IE5533" class="btn primary-btn" target="_blank">View on GitHub</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Lane Alfstad. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/lanealfstad" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/lanealfstad" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

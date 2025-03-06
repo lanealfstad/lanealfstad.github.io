@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weighted Least Squares Analysis - Lane Alfstad</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">Lane Alfstad</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#skills">Skills</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1>Weighted Least Squares Analysis</h1>
+            <div class="project-meta">
+                <span><i class="fas fa-code"></i> Julia</span>
+                <span><i class="fas fa-square-root-alt"></i> Statistical Analysis</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="project-section">
+                <h2>Project Overview</h2>
+                <p>Implementation of weighted least squares regression with comprehensive visualization of results using Julia. This project demonstrates advanced statistical modeling techniques and their applications in data analysis.</p>
+            </div>
+
+            <div class="project-section">
+                <h3>Mathematical Foundation</h3>
+                <div class="tech-stack">
+                    <span>Linear Algebra</span>
+                    <span>Statistical Theory</span>
+                    <span>Optimization</span>
+                </div>
+                <p>The weighted least squares method extends ordinary least squares by incorporating weights to handle heteroscedasticity:</p>
+                <div class="code-block">
+                    <pre><code>
+# Julia implementation of weighted least squares
+function weighted_least_squares(X, y, w)
+    # X: design matrix
+    # y: response vector
+    # w: weights vector
+    W = Diagonal(w)
+    β = inv(X' * W * X) * X' * W * y
+    return β
+end
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Implementation Details</h3>
+                <div class="tech-stack">
+                    <span>Julia</span>
+                    <span>Plots.jl</span>
+                    <span>LinearAlgebra.jl</span>
+                </div>
+                <p>Key components of the implementation include:</p>
+                <ul>
+                    <li>Data preprocessing and weight calculation</li>
+                    <li>Model fitting and parameter estimation</li>
+                    <li>Residual analysis and diagnostics</li>
+                    <li>Interactive visualization of results</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>
+using Plots
+using LinearAlgebra
+using Statistics
+
+# Generate synthetic data with heteroscedastic errors
+n = 100
+x = range(0, 10, length=n)
+y_true = 2 .* x .+ 1
+ϵ = randn(n) .* (0.5 .+ x/5)
+y = y_true + ϵ
+
+# Calculate weights (inverse of variance)
+weights = 1 ./ (0.5 .+ x/5).^2
+
+# Fit weighted least squares model
+X = hcat(ones(n), x)
+β_wls = weighted_least_squares(X, y, weights)
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Visualization</h3>
+                <div class="tech-stack">
+                    <span>Plots.jl</span>
+                    <span>StatsPlots.jl</span>
+                </div>
+                <p>The project includes several types of visualizations:</p>
+                <ul>
+                    <li>Scatter plots with fitted lines</li>
+                    <li>Residual diagnostic plots</li>
+                    <li>Weight distribution visualization</li>
+                    <li>Comparison with ordinary least squares</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>
+# Create visualization of results
+plot(x, y, seriestype=:scatter, 
+     label="Data", alpha=0.5,
+     markersize=weights*50)
+plot!(x, X * β_wls, 
+      label="WLS fit",
+      linewidth=2)
+xlabel!("x")
+ylabel!("y")
+title!("Weighted Least Squares Regression")
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Applications</h3>
+                <p>The weighted least squares method was applied to several real-world datasets:</p>
+                <ul>
+                    <li>Economic data with varying reliability</li>
+                    <li>Scientific measurements with known error margins</li>
+                    <li>Time series data with changing variance</li>
+                    <li>Cross-sectional studies with heteroscedastic errors</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3>Key Findings</h3>
+                <ul>
+                    <li>WLS provides more accurate estimates than OLS for heteroscedastic data</li>
+                    <li>Proper weight selection is crucial for model performance</li>
+                    <li>Visual diagnostics help in identifying model adequacy</li>
+                    <li>Julia's performance enables efficient analysis of large datasets</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3>Technologies Used</h3>
+                <div class="tech-stack">
+                    <span>Julia</span>
+                    <span>Plots.jl</span>
+                    <span>LinearAlgebra.jl</span>
+                    <span>Statistics.jl</span>
+                    <span>StatsPlots.jl</span>
+                    <span>DataFrames.jl</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="project-navigation">
+        <div class="container">
+            <a href="../index.html#projects" class="btn secondary-btn">Back to Projects</a>
+            <a href="https://github.com/lanealfstad/IE3013" class="btn primary-btn" target="_blank">View on GitHub</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Lane Alfstad. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/lanealfstad" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/lanealfstad" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

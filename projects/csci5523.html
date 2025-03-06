@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Projects - Lane Alfstad</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">Lane Alfstad</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#skills">Skills</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1>Machine Learning Projects</h1>
+            <div class="project-meta">
+                <span><i class="fas fa-code"></i> Python, R</span>
+                <span><i class="fas fa-brain"></i> Machine Learning</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="project-section">
+                <h2>Project Overview</h2>
+                <p>A collection of machine learning projects focusing on classification, regression, and clustering problems. These projects demonstrate proficiency in various ML algorithms and techniques.</p>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 1: Decision Trees and Random Forests</h3>
+                <div class="tech-stack">
+                    <span>Python</span>
+                    <span>scikit-learn</span>
+                    <span>pandas</span>
+                </div>
+                <p>Implementation of decision trees and random forests for classification tasks, including:</p>
+                <ul>
+                    <li>Data preprocessing and feature engineering</li>
+                    <li>Model training and hyperparameter tuning</li>
+                    <li>Cross-validation and performance evaluation</li>
+                    <li>Feature importance analysis</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>
+# Example code snippet
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_score
+
+# Train random forest
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+scores = cross_val_score(rf_model, X_train, y_train, cv=5)
+print(f"Cross-validation scores: {scores.mean():.3f} (+/- {scores.std() * 2:.3f})")
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 2: Naive Bayes Classification</h3>
+                <div class="tech-stack">
+                    <span>R</span>
+                    <span>caret</span>
+                    <span>e1071</span>
+                </div>
+                <p>Implementation of Naive Bayes classifier for text classification, including:</p>
+                <ul>
+                    <li>Text preprocessing and feature extraction</li>
+                    <li>Model training and evaluation</li>
+                    <li>Performance comparison with other classifiers</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>
+# Example R code
+library(e1071)
+library(caret)
+
+# Train Naive Bayes model
+nb_model <- naiveBayes(x = training_features, y = training_labels)
+predictions <- predict(nb_model, test_features)
+confusionMatrix(predictions, test_labels)
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Project 3: Clustering Analysis</h3>
+                <div class="tech-stack">
+                    <span>Python</span>
+                    <span>scikit-learn</span>
+                    <span>matplotlib</span>
+                </div>
+                <p>Implementation of clustering algorithms for unsupervised learning:</p>
+                <ul>
+                    <li>K-means clustering</li>
+                    <li>Hierarchical clustering</li>
+                    <li>DBSCAN</li>
+                    <li>Cluster validation and visualization</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>
+# Example clustering code
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+
+# Perform k-means clustering
+kmeans = KMeans(n_clusters=3, random_state=42)
+clusters = kmeans.fit_predict(X)
+score = silhouette_score(X, clusters)
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Key Learnings</h3>
+                <ul>
+                    <li>Practical experience with various ML algorithms and their implementations</li>
+                    <li>Understanding of model selection and evaluation techniques</li>
+                    <li>Experience with both Python and R machine learning ecosystems</li>
+                    <li>Real-world application of ML concepts to solve practical problems</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3>Technologies Used</h3>
+                <div class="tech-stack">
+                    <span>Python</span>
+                    <span>R</span>
+                    <span>scikit-learn</span>
+                    <span>pandas</span>
+                    <span>numpy</span>
+                    <span>matplotlib</span>
+                    <span>seaborn</span>
+                    <span>caret</span>
+                    <span>tidyverse</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="project-navigation">
+        <div class="container">
+            <a href="../index.html#projects" class="btn secondary-btn">Back to Projects</a>
+            <a href="https://github.com/lanealfstad/CSCI5523" class="btn primary-btn" target="_blank">View on GitHub</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Lane Alfstad. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/lanealfstad" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/lanealfstad" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 
