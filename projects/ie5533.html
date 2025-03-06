@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basketball Analytics - Lane Alfstad</title>
+    <title>Advanced Statistical Learning - Lane Alfstad</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/project-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,7 +25,7 @@
 
     <section class="project-hero">
         <div class="container">
-            <h1>Basketball Analytics</h1>
+            <h1>Advanced Statistical Learning</h1>
             <div class="project-meta">
                 <span><i class="fas fa-code"></i> R</span>
                 <span><i class="fas fa-chart-line"></i> Statistical Analysis</span>
@@ -37,107 +37,215 @@
         <div class="container">
             <div class="project-section">
                 <h2>Project Overview</h2>
-                <p>Advanced statistical analysis of basketball data to identify performance patterns and predict game outcomes. This project combines statistical modeling with sports analytics to derive actionable insights.</p>
+                <p>A comprehensive exploration of statistical learning methods, from fundamental concepts to advanced techniques. This coursework demonstrates proficiency in various statistical learning approaches, model evaluation, and practical applications using R.</p>
             </div>
 
             <div class="project-section">
-                <h3>Data Analysis</h3>
+                <h3>Regression Analysis</h3>
                 <div class="tech-stack">
                     <span>R</span>
                     <span>tidyverse</span>
-                    <span>ggplot2</span>
-                </div>
-                <p>Comprehensive analysis of basketball statistics including:</p>
-                <ul>
-                    <li>Player performance metrics</li>
-                    <li>Team statistics and trends</li>
-                    <li>Game outcome predictions</li>
-                    <li>Shot selection analysis</li>
-                </ul>
-                <div class="code-block">
-                    <pre><code>
-# Example R code for basketball analysis
-library(tidyverse)
-library(ggplot2)
-
-# Analyze player performance
-player_stats <- basketball_data %>%
-  group_by(player_id) %>%
-  summarize(
-    avg_points = mean(points),
-    avg_rebounds = mean(rebounds),
-    avg_assists = mean(assists),
-    games_played = n()
-  ) %>%
-  arrange(desc(avg_points))
-                    </code></pre>
-                </div>
-            </div>
-
-            <div class="project-section">
-                <h3>Statistical Modeling</h3>
-                <div class="tech-stack">
-                    <span>R</span>
                     <span>caret</span>
-                    <span>stats</span>
                 </div>
-                <p>Development of statistical models for:</p>
+                <p>Implementation of various regression techniques:</p>
                 <ul>
-                    <li>Game outcome prediction</li>
-                    <li>Player performance forecasting</li>
-                    <li>Team strategy optimization</li>
+                    <li>Linear regression with regularization</li>
+                    <li>Polynomial regression and splines</li>
+                    <li>Cross-validation and model selection</li>
                 </ul>
                 <div class="code-block">
                     <pre><code>
-# Logistic regression for game outcome prediction
-game_model <- glm(
-  win ~ points + rebounds + assists + turnovers,
-  data = game_data,
-  family = binomial
+# Example from Assignment 2
+library(tidyverse)
+library(caret)
+
+# Fit polynomial regression
+poly_fit <- train(
+  quality ~ poly(density, degree = 3),
+  data = wine_data,
+  method = "lm",
+  trControl = trainControl(method = "cv", number = 5)
 )
-
-# Model summary and predictions
-summary(game_model)
-predictions <- predict(game_model, newdata = test_data, type = "response")
                     </code></pre>
                 </div>
             </div>
 
             <div class="project-section">
-                <h3>Visualization</h3>
+                <h3>Classification Methods</h3>
                 <div class="tech-stack">
-                    <span>ggplot2</span>
-                    <span>plotly</span>
-                    <span>gganimate</span>
+                    <span>caret</span>
+                    <span>e1071</span>
+                    <span>randomForest</span>
                 </div>
-                <p>Creation of interactive visualizations to display:</p>
+                <p>Exploration of classification algorithms:</p>
                 <ul>
-                    <li>Shot charts and heat maps</li>
-                    <li>Performance trends over time</li>
-                    <li>Player comparison dashboards</li>
-                    <li>Team statistics visualizations</li>
+                    <li>Logistic regression and LDA</li>
+                    <li>Support Vector Machines</li>
+                    <li>Random Forests and Boosting</li>
                 </ul>
                 <div class="code-block">
                     <pre><code>
-# Create shot chart visualization
-ggplot(shot_data, aes(x = court_x, y = court_y)) +
-  geom_point(aes(color = made_shot)) +
-  court_theme() +
-  scale_color_manual(values = c("red", "green")) +
-  labs(title = "Shot Distribution",
-       subtitle = "Made vs Missed Shots")
+# Example from Assignment 6
+library(e1071)
+library(caret)
+
+# SVM with radial kernel
+svm_model <- svm(
+  class ~ .,
+  data = training_data,
+  kernel = "radial",
+  cost = 10,
+  gamma = 0.1
+)
                     </code></pre>
                 </div>
             </div>
 
             <div class="project-section">
-                <h3>Key Findings</h3>
+                <h3>Unsupervised Learning</h3>
+                <div class="tech-stack">
+                    <span>stats</span>
+                    <span>cluster</span>
+                    <span>factoextra</span>
+                </div>
+                <p>Application of unsupervised learning methods:</p>
                 <ul>
-                    <li>Identified key performance indicators that most strongly correlate with winning</li>
-                    <li>Developed predictive models with over 70% accuracy for game outcomes</li>
-                    <li>Created optimized lineup recommendations based on statistical analysis</li>
-                    <li>Generated insights for improving team strategy and player development</li>
+                    <li>Principal Component Analysis</li>
+                    <li>K-means and Hierarchical Clustering</li>
+                    <li>Dimensionality Reduction</li>
                 </ul>
+                <div class="code-block">
+                    <pre><code>
+# Example from Assignment 7
+library(factoextra)
+
+# Perform PCA
+pca_result <- prcomp(data, scale. = TRUE)
+fviz_pca_biplot(pca_result,
+                label = "var",
+                col.var = "contrib",
+                gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"))
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Course Assignments</h3>
+                <p>A progression of statistical analyses and modeling techniques:</p>
+                
+                <div class="assignment-grid">
+                    <div class="assignment-card">
+                        <h4>Assignment 1: Statistical Learning Foundations</h4>
+                        <p>Analysis of wine quality data using basic statistical methods:</p>
+                        <ul>
+                            <li>Exploratory data analysis</li>
+                            <li>Simple linear regression</li>
+                            <li>Model diagnostics</li>
+                        </ul>
+                        <div class="assignment-links">
+                            <a href="../IE5533/Assignment1/Assignment1Markdown.html" class="btn secondary-btn">View Analysis</a>
+                            <a href="../IE5533/Assignment1/Assignment1.R" class="btn project-btn">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card">
+                        <h4>Assignment 2: Advanced Regression</h4>
+                        <p>Analysis of quality metrics using advanced regression:</p>
+                        <ul>
+                            <li>Multiple regression analysis</li>
+                            <li>Polynomial regression</li>
+                            <li>Interaction effects</li>
+                        </ul>
+                        <div class="assignment-links">
+                            <a href="../IE5533/Assignment2/Assignment2Markdown.html" class="btn secondary-btn">View Analysis</a>
+                            <a href="../IE5533/Assignment2/Assignment2.R" class="btn project-btn">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card">
+                        <h4>Assignment 3: Classification</h4>
+                        <p>Cancer diagnosis prediction using classification methods:</p>
+                        <ul>
+                            <li>Logistic regression</li>
+                            <li>LDA and QDA</li>
+                            <li>KNN classification</li>
+                        </ul>
+                        <div class="assignment-links">
+                            <a href="../IE5533/Assignment3/Assignment3Markdown.html" class="btn secondary-btn">View Analysis</a>
+                            <a href="../IE5533/Assignment3/Assignment3.R" class="btn project-btn">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card">
+                        <h4>Assignment 4: Resampling Methods</h4>
+                        <p>Model validation using resampling techniques:</p>
+                        <ul>
+                            <li>Cross-validation</li>
+                            <li>Bootstrap analysis</li>
+                            <li>Model selection</li>
+                        </ul>
+                        <div class="assignment-links">
+                            <a href="../IE5533/Assignment4/Assignment4Markdown.html" class="btn secondary-btn">View Analysis</a>
+                            <a href="../IE5533/Assignment4/Assignment4.R" class="btn project-btn">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card">
+                        <h4>Assignment 5: Tree Methods</h4>
+                        <p>Analysis using decision trees and ensembles:</p>
+                        <ul>
+                            <li>Decision trees</li>
+                            <li>Random forests</li>
+                            <li>Gradient boosting</li>
+                        </ul>
+                        <div class="assignment-links">
+                            <a href="../IE5533/Assignment5/Assignment5Markdown.html" class="btn secondary-btn">View Analysis</a>
+                            <a href="../IE5533/Assignment5/Assignment5.R" class="btn project-btn">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card">
+                        <h4>Assignment 6: Support Vector Machines</h4>
+                        <p>Classification using SVM methods:</p>
+                        <ul>
+                            <li>Linear SVM</li>
+                            <li>Kernel methods</li>
+                            <li>Parameter tuning</li>
+                        </ul>
+                        <div class="assignment-links">
+                            <a href="../IE5533/Assignment6/Assignment6Markdown.html" class="btn secondary-btn">View Analysis</a>
+                            <a href="../IE5533/Assignment6/Assignment6.R" class="btn project-btn">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card">
+                        <h4>Assignment 7: Unsupervised Learning</h4>
+                        <p>Pattern discovery in unlabeled data:</p>
+                        <ul>
+                            <li>Principal components analysis</li>
+                            <li>K-means clustering</li>
+                            <li>Hierarchical clustering</li>
+                        </ul>
+                        <div class="assignment-links">
+                            <a href="../IE5533/Assignment7/Assignment7Markdown.html" class="btn secondary-btn">View Analysis</a>
+                            <a href="../IE5533/Assignment7/Assignment7.R" class="btn project-btn">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="assignment-card">
+                        <h4>Assignment 8: Advanced Methods</h4>
+                        <p>Modern statistical learning approaches:</p>
+                        <ul>
+                            <li>Neural networks</li>
+                            <li>Deep learning</li>
+                            <li>Model deployment</li>
+                        </ul>
+                        <div class="assignment-links">
+                            <a href="../IE5533/Assignment8/Assignment8Markdown.html" class="btn secondary-btn">View Analysis</a>
+                            <a href="../IE5533/Assignment8/Assignment8.R" class="btn project-btn">View Code</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="project-section">
@@ -145,12 +253,12 @@ ggplot(shot_data, aes(x = court_x, y = court_y)) +
                 <div class="tech-stack">
                     <span>R</span>
                     <span>tidyverse</span>
-                    <span>ggplot2</span>
-                    <span>plotly</span>
                     <span>caret</span>
-                    <span>dplyr</span>
-                    <span>tidyr</span>
-                    <span>gganimate</span>
+                    <span>e1071</span>
+                    <span>randomForest</span>
+                    <span>glmnet</span>
+                    <span>factoextra</span>
+                    <span>cluster</span>
                 </div>
             </div>
         </div>
