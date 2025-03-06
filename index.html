@@ -255,20 +255,19 @@
                 </div>
                 <form id="contact-form" action="https://formspree.io/f/xvgzeyla" method="POST">
                     <div class="form-group">
-                        <label for="name">Name
-                            <input type="text" id="name" name="name" required>
-                        </label>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Your email
-                            <input type="email" id="email" name="email" required>
-                        </label>
+                        <label for="email">Your email</label>
+                        <input type="email" id="email" name="_replyto" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Your message
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </label>
+                        <label for="message">Your message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
+                    <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
+                    <input type="text" name="_gotcha" style="display:none">
                     <button type="submit" class="btn primary-btn">Send Message</button>
                 </form>
             </div>

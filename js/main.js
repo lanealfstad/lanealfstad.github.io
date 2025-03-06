@@ -63,14 +63,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // In a real application, you would send the form data to a server
-            // For this example, we'll just show a success message
-            const formData = new FormData(contactForm);
-            
             // Simple validation
             let isValid = true;
+            const formData = new FormData(contactForm);
+            
             for (const [key, value] of formData.entries()) {
                 if (!value.trim()) {
                     isValid = false;
@@ -78,12 +74,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            if (isValid) {
-                alert('Thank you! Your message has been sent.');
-                contactForm.reset();
-            } else {
+            if (!isValid) {
+                e.preventDefault();
                 alert('Please fill in all fields.');
             }
+            // If valid, let the form submit naturally to Formspree
         });
     }
     
